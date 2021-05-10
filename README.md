@@ -7,6 +7,9 @@ tedious parts of cut'n'paste coding.
 
 This example uses a H2 database and thus do not need anything to be installed.
 
+To compile and package the project:
+`mvn package`
+
 To generate the database from the Flyway migration scripts:
 `mvn flyway:migrate`
 
