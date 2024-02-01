@@ -2,7 +2,8 @@
 -- database. Create all tables etc. that are needed for the first version.
 
 CREATE TABLE highscore (
-    id IDENTITY PRIMARY KEY,
+    id INT IDENTITY(1,1) PRIMARY KEY,
     score INT NOT NULL,
     name VARCHAR(10)
 );
+GO

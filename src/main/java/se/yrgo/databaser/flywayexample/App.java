@@ -14,7 +14,11 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class App {
     public static void main(String[] args) {
-        try (Connection conn = DriverManager.getConnection("jdbc:h2:./target/highscore", "sa", "")) {
+        // get the password from an environment variable since we do not
+        // want to store it in the source code, nor give it on the command line
+        final String user = System.getenv("MSSQL_USER");
+        final String password = System.getenv("MSSQL_PASSWORD");
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost;trustServerCertificate=true;databaseName=Highscore", user, password)) {
             insertHighscore(conn);
             listAllScores(conn);
         } catch (SQLException ex) {
